@@ -1,9 +1,7 @@
 from django.db import models
 
 # Create your models here.
-
-
-
+# Model is incomplete
 
 class Student(models.Model):
     name = models.CharField(unique=False, max_length=50)
