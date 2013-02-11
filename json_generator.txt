@@ -1,0 +1,13 @@
+[
+    '{{repeat(5000)}}',
+    {
+        pk: '{{index}}',
+  		model: "roster.Student",
+        fields:{
+        name: '{{firstName}} {{lastName}}',
+        pid: '{{numeric(710000000,799999999)}}',
+        grade:'{{numeric(54,100)}}'    
+        }
+        
+    }
+]
