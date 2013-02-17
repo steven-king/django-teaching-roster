@@ -1,0 +1,15 @@
+<!--roster/templates/roster/home.html -->
+
+{% extends "base.html"%}    
+{% load humanize %}
+{% load url from future %}
+
+{% block content %}
+<h1>Students and Classes</h1>
+<p>This new interactive development school has {{ student_count|intcomma }} students
+in {{ course_count|intcomma }} courses.</p>
+
+<p><a href="{% url 'roster_course'  %}">List of Courses</a></p>
+<p><a href="{% url 'roster_student' %}">List of Students</a></p>
+{% endblock %}
+

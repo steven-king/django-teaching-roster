@@ -1,0 +1,14 @@
+<!-- new file: roster/templates/roster/course.html -->
+
+{% extends "base.html" %}
+
+
+{% block content %}
+<h2>Course: {{ course.name }}</h2>
+<p>Details</p>
+<ul>
+    <li>{{ course.instructor }}</li>
+    <li>{{ course.term }}</li>
+    
+</ul>
+{% endblock %}

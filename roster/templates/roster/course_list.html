@@ -1,0 +1,33 @@
+<!-- roster/templates/roster/course_list.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>All Classes</h2>
+    <ul>
+    {% for course in courses %}
+    {# Each "student" is a student model object. #}
+    <li><a href="{{ course.id }}">{{ course.name }}</a> | {{ course.callnumber}}</li>
+{% endfor %}
+</ul>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if students.has_previous %}
+            <a href="?page={{ courses.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ courses.number }} of {{ courses.paginator.num_pages }}.
+        </span>
+
+        {% if students.has_next %}
+            <a href="?page={{ courses.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+    
+    
+    
+    
+    
+{% endblock %}
