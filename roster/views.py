@@ -1,7 +1,7 @@
 # roster/views.py
 # Create your views here.
 from roster.models import Course, Student
-from django.shortcuts import render, get_object_or_404, redirect, render_to_response
+from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def home(request):
@@ -29,7 +29,7 @@ def courseList(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         courses = paginator.page(paginator.num_pages)
 
-    return render_to_response('roster/course_list.html', {"courses": courses})
+    return render(request, 'roster/course_list.html', {"courses": courses})
    
 def student(request, pk):
     #student = Student.objects.order_by('?')[0]
@@ -50,7 +50,7 @@ def studentList(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         students = paginator.page(paginator.num_pages)
 
-    return render_to_response('roster/student_list.html', {"students": students})
+    return render(request, 'roster/student_list.html', {"students": students})
     
     
     #student = get_object_or_404(Student)
