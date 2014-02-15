@@ -11,3 +11,4 @@ urlpatterns = patterns('',
     url(r'^student/(?P<pk>\d+)$', views.student, name='roster_student'),
     )
 
+
