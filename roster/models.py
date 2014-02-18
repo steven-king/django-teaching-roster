@@ -7,7 +7,7 @@ class Student(models.Model):
     name = models.CharField(unique=False, max_length=50)
     pid = models.CharField(unique=True, max_length=12)
     grade = models.IntegerField(unique=False, null=True, max_length=3)
-    #imageurl = models.ImageField(max_length =100)
+    imageurl = models.TextField(unique=False)
     class Meta(object):
         ordering = ('pid', 'name')
     

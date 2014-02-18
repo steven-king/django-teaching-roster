@@ -4,9 +4,19 @@
 
 {% block content %}
 <h2>Student: {{ student.name }}</h2>
-<p>Details</p>
-<ul>
-    <li>{{ student.pid }}</li>
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="{{ student.imageurl }}" alt="{{ student.name }}" width="100%">
+    </div>
     
-</ul>
+    <div class="col-md-6">
+        <p>Details</p>
+        <ul>
+            <li>PID: {{ student.pid }}</li>
+            <li>Grade: {{ student.grade }}</li>
+
+        </ul>
+    </div>
+</div>
 {% endblock %}

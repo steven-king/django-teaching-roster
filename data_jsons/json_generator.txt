@@ -1,12 +1,13 @@
 [
-    '{{repeat(5000)}}',
+    '{{repeat(1000)}}',
     {
         pk: '{{index}}',
   		model: "roster.Student",
         fields:{
         name: '{{firstName}} {{lastName}}',
         pid: '{{numeric(710000000,799999999)}}',
-        grade:'{{numeric(54,100)}}'    
+        grade:'{{numeric(54,100)}}',
+	imageurl: 'http://lorempixel.com/400/600/people/'
         }
         
     }
