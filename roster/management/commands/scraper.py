@@ -14,7 +14,7 @@ class Command(BaseCommand):
     
     def handle(self, *args, **options):
         try:
-            self.stdout.write("trying")
+            print ("trying to scrape")
 
 
 
@@ -26,7 +26,7 @@ class Command(BaseCommand):
 
             #Use this code when file is local:
             #with open ("transcript.html", "r") as tempFile:
-            #html=tempFile.read().replace('<p>[SPEAKER CHANGE]', '<p class="speaker_change">');
+            #html=tempFile.read();
 
 
             #end local version
