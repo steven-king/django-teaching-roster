@@ -1,8 +1,12 @@
 # roster/views.py
 # Create your views here.
 from roster.models import Course, Student
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+
+from django.core.urlresolvers import reverse
+from datetime import datetime
 
 def home(request):
     context = {
@@ -56,4 +60,50 @@ def studentList(request):
     #student = get_object_or_404(Student)
     #return render(request, "roster/student_list.html", {'student': student})
 
+
+
+### Basic Django Forms way...
+from roster.forms import addCourseForm  ##(should be at top with other imports)
+
+def createCourse(request):
+    if request.method == 'GET':
+        newCourse = addCourseForm()
+    else:
+        newCourse = addCourseForm(request.POST)
+        submitDate = datetime.utcnow()
     
+    if newCourse.is_valid():
+        newCourse = Course.objects.create(name=request.POST['name'], date=submitDate)
+        
+        return HttpResponseRedirect(reverse('roster_course_list'))
+    
+    return render(request, 'roster/new_course.html', {'form': newCourse,})
+        
+ 
+ 
+ ### ModelForm Django forms
+from roster.forms import addCourseModelForm #(should be at top with other imports)
+ 
+def createCourseModelForm(request):
+    if request.method == 'GET':
+        form = addCourseModelForm()
+    else:
+        # A POST request: Handle Form Upload
+        # Bind data from request.POST into a PostForm
+        form = addCourseModelForm(request.POST)
+        submitDate = datetime.utcnow()
+        # If data is valid, proceeds to create a new post and redirect the user
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            callnumber = form.cleaned_data['callnumber']
+            course = Course.objects.create(name=name, date=submitDate)
+            return HttpResponseRedirect(reverse('roster_course_list'))
+        
+ 
+    return render(request, 'roster/new_course.html', {
+        'form': form,
+    })
+ 
+ 
+ 
+ 

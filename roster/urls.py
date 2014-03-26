@@ -9,6 +9,9 @@ urlpatterns = patterns('',
     url(r'^student/$', views.studentList, name='roster_student_list'),
     url(r'^course/(?P<pk>\d+)$', views.course, name='roster_course'),
     url(r'^student/(?P<pk>\d+)$', views.student, name='roster_student'),
+    url(r'^newcourse/$', views.createCourse, name='roster_new_course'),
+    
+    url(r'^new_course.html$', views.createCourse, name='post_form_course'),
     )
 
 

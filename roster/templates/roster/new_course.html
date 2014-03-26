@@ -1,0 +1,24 @@
+<!--roster/templates/rostser/new_course.html-->
+
+<form action='/new_course.html' method='post'>{% csrf_token %}
+{{ form.as_p }}
+<input type='submit' value='Submit' />
+</form>
+
+
+<!-- custom form with classes -->
+<form action='/new_course.html' method='post'>{% csrf_token %}
+
+<div class="fieldWrapper">
+        {{ form.name.errors }}
+        <label for="id_name">Give a Course Name please:</label>
+        {{ form.name }}
+    </div>
+
+
+
+<input type='submit' value='Submit' />
+</form>
+
+
+ 

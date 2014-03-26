@@ -1,0 +1,15 @@
+
+<!-- first POST method
+<form action="{% url 'roster_new_course' %}" method="post">                                                             
+  {% csrf_token %}
+  <label for="name"></label>
+  <input type="text" name="name" id="name" />
+  <input type="submit" />
+</form>
+
+-->
+<h3>Sorry, please try again...</h3>
+<form action='/new_course.html' method='post'>{% csrf_token %}
+{{ form.as_p }}
+<input type='submit' value='Submit' />
+</form>
